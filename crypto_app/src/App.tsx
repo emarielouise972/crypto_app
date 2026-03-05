@@ -6,8 +6,6 @@ import Header from './components/Header'
 import Nav from './components/Nav'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Header />
@@ -16,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
