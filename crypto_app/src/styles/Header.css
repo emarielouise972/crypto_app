@@ -4,3 +4,23 @@
     left: 0;
     padding: 1rem;
 }
+.nav{
+    display: flex;
+    align-items:center
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+}
+
+.nav ul li {
+    margin-right: 10px;
+}
