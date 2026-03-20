@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import './App.css'
 import Header from './components/Header'
 import CryptoList from './components/CryptoList'
@@ -9,8 +8,17 @@ function App() {
   return (
     <>
       <Header />
-      <CryptoList />
-      <GraphiqueCrypto coinId="bitcoin" days={7} />
+      <div style={{ display: 'flex', gap: '20px', padding: '20px', marginTop: '60px' }}>
+        
+        <div>
+          <CryptoList />
+        </div>
+
+        <div style={{ flex: 1 }}>
+          <GraphiqueCrypto coinId="bitcoin" days={7} />
+        </div>
+        
+      </div>
     </> 
   )
 }
