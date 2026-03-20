@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <div style={{ display: 'flex', gap: '20px', padding: '20px', marginTop: '60px' }}>
+      <div style={{ display: 'flex', gap: '20px', padding: '20px', marginTop: '100px' }}>
         
         <div>
           <CryptoList />
