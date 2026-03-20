@@ -2,6 +2,7 @@ import { Coin } from '../types/crypto';
 
 interface CryptoCardProps {
   coin: Coin;
+  onClick: () => void;
 }
 
 export default function CryptoCard({ coin }: CryptoCardProps) {
