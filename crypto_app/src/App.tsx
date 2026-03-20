@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import Header from './components/Header'
-import Nav from './components/Nav'
+import CryptoList from './components/CryptoList'
+import GraphiqueCrypto from './components/Graphiques'
 
 function App() {
   return (
     <>
       <Header />
-      <Nav />
-    </>
+      <CryptoList />
+      <GraphiqueCrypto coinId="bitcoin" days={7} />
+    </> 
   )
 }
 
