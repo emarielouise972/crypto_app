@@ -43,9 +43,6 @@ const GraphiqueCrypto: React.FC<GraphiqueCryptoProps> = ({ coinId, days }) => {
 
   return (
     <div style={{ width: '100%', height: 400, marginTop: '20px' }}>
-      <h3 style={{ textTransform: 'capitalize', textAlign: 'center' }}>
-        Évolution du {coinId} sur {days} jours
-      </h3>
       
       <ResponsiveContainer>
         <LineChart data={chartData} margin={{ top: 10, right: 30, left: 20, bottom: 0 }}>

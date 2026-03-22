@@ -15,7 +15,6 @@ function App() {
         </div>
 
         <div style={{ flex: 1 }}>
-          <GraphiqueCrypto coinId="bitcoin" days={7} />
         </div>
         
       </div>
