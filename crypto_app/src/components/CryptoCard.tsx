@@ -28,7 +28,9 @@ export default function CryptoCard({ coin, isFavorite, onToggleFavorite, onClick
       </div>
       
       {/* 4ème colonne : Pourcentage */}
-
+      <div className={`crypto-card-percentage ${isPositive ? 'positive' : 'negative'}`}>
+        {isPositive ? '+' : ''}{coin.price_change_percentage_24h?.toFixed(2)}%
+      </div>  
 
       {/* 5ème colonne : Bouton */}
       <div className="crypto-card-action">

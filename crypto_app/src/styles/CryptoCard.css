@@ -1,7 +1,8 @@
 .crypto-card {
-  display: grid;
-  grid-template-columns: 40px 1fr 100px 80px 40px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
   padding: 10px 15px;
   border: 1px solid #444;
@@ -9,16 +10,15 @@
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
-  cursor: pointer;
-  background-color: transparent;
-  transition: background-color 0.2s;
 }
 
 .crypto-card:hover {
-  background-color: rgba(255, 255, 255, 0.05); /* Petit effet visuel au survol */
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .crypto-card-name {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -28,15 +28,6 @@
 .crypto-card-symbol {
   font-size: 0.8em;
   color: #aaa;
-}
-
-.crypto-card-price {
-  text-align: right;
-}
-
-.crypto-card-percentage {
-  text-align: right;
-  font-weight: bold;
 }
 
 /* Classes dynamiques pour le pourcentage */
