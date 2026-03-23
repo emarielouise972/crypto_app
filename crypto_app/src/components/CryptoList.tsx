@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchCryptoList } from '../api/crypto_api';
 import { Coin } from '../types/crypto';
 import CryptoCard from './CryptoCard';
+import '../styles/CryptoList.css';
 import GraphiqueCrypto from './Graphiques';
 
 export default function CryptoList() {
@@ -114,8 +115,8 @@ export default function CryptoList() {
               </div>
             </div>
             
-            
-            <div style={{ height: '40%', width: '100%', border: '1px dashed #667', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px', borderRadius: '8px' }}>
+            {/* EMPLACEMENT DU GRAPHIQUE */}
+            <div style={{ height: '400px', width: '100%', border: '1px dashed #666', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px', borderRadius: '8px' }}>
               <GraphiqueCrypto coinId={selectedCoin.id} days={timeframe} />
             </div>
           </div>

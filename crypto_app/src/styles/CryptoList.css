@@ -1,0 +1,74 @@
+.crypto-list-container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.crypto-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-right: 1px solid white;
+  padding-right: 10px;
+}
+
+.favorites-section {
+  margin-bottom: 20px;
+}
+
+.crypto-main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.crypto-header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeframe-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.timeframe-btn {
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.timeframe-btn:hover {
+  background-color: #555;
+}
+
+/* Classe dynamique pour le bouton sélectionné */
+.timeframe-btn.active {
+  background-color: #007bff;
+}
+
+.crypto-chart-wrapper {
+  height: 400px; /* Ajusté pour bien afficher le graphique Recharts */
+  width: 100%;
+  border: 1px dashed #667;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.crypto-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+}
