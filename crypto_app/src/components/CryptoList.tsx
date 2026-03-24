@@ -9,13 +9,15 @@ export default function CryptoList() {
   const [coins, setCoins] = useState<Coin[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
-  
-  // NOUVEAU : État pour stocker la période sélectionnée (en jours)
   const [timeframe, setTimeframe] = useState<number>(7); 
   
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Périodes de filtrage disponibles pour le graphique (en jours)
+  const timeframes = [7, 30, 180, 365];
+
+  // Chargement initial des données du marché
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -32,6 +34,7 @@ export default function CryptoList() {
     loadData();
   }, []);
 
+  // Ajoute ou retire une cryptomonnaie du tableau des favoris
   const handleToggleFavorite = (id: string) => {
     setFavoriteIds((prevFavorites) => 
       prevFavorites.includes(id) 
@@ -45,15 +48,11 @@ export default function CryptoList() {
 
   const favoriteCoins = coins.filter(coin => favoriteIds.includes(coin.id));
 
-  // Tableau des périodes que l'on souhaite afficher
-  const timeframes = [7, 30, 180, 365];
-
   return (
-    <div style={{ display: 'flex', width: '100%', gap: '20px' }}>
+    <div className="crypto-list-container">
       
-      {/* COLONNE GAUCHE : La liste */}
-      <div style={{ display: 'flex', flexDirection: 'column', width: '400px', borderRight: '1px solid white', paddingRight: '10px' }}>
-        <div style={{ marginBottom: '20px' }}>
+      <div className="crypto-sidebar">
+        <div className="favorites-section">
           <h2>Favoris</h2>
           {favoriteCoins.length === 0 ? <p>Aucun favori.</p> : null}
           {favoriteCoins.map((coin) => (
@@ -66,7 +65,9 @@ export default function CryptoList() {
             />
           ))}
         </div>
+        
         <hr />
+        
         <div>
           <h2>Toutes cryptos</h2>
           {coins.map((coin) => (
@@ -81,33 +82,21 @@ export default function CryptoList() {
         </div>
       </div>
 
-      {/* COLONNE DROITE : La zone du graphique */}
-      <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
+      <div className="crypto-main">
         {selectedCoin ? (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div className="crypto-header-actions">
               <div>
                 <h2>Graphique pour {selectedCoin.name}</h2>
                 <p>Prix actuel : {selectedCoin.current_price} €</p>
               </div>
               
-              {/* NOUVEAU : Les boutons de sélection de période */}
-              <div style={{ display: 'flex', gap: '10px' }}>
+              <div className="timeframe-buttons">
                 {timeframes.map((days) => (
                   <button
                     key={days}
                     onClick={() => setTimeframe(days)}
-                    style={{
-                      padding: '8px 15px',
-                      cursor: 'pointer',
-                      // Style conditionnel : bleu si actif, gris si inactif
-                      backgroundColor: timeframe === days ? '#007bff' : '#333',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '5px',
-                      fontWeight: 'bold',
-                      transition: 'background-color 0.2s'
-                    }}
+                    className={`timeframe-btn ${timeframe === days ? 'active' : ''}`}
                   >
                     {days}J
                   </button>
@@ -115,18 +104,16 @@ export default function CryptoList() {
               </div>
             </div>
             
-            {/* EMPLACEMENT DU GRAPHIQUE */}
-            <div style={{ height: '400px', width: '100%', border: '1px dashed #666', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px', borderRadius: '8px' }}>
+            <div className="crypto-chart-wrapper">
               <GraphiqueCrypto coinId={selectedCoin.id} days={timeframe} />
             </div>
           </div>
         ) : (
-          <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#aaa' }}>
+          <div className="crypto-placeholder">
             <p>Cliquez sur une cryptomonnaie pour afficher son graphique.</p>
           </div>
         )}
       </div>
-
     </div>
   );
 }
