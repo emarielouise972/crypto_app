@@ -26,6 +26,14 @@
   box-sizing: border-box;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 100px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
