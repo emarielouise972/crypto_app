@@ -8,8 +8,6 @@ export default function Header() {
       <h1>CryptoApp</h1>
       <nav className="nav">
           <ul>
-              <li><a href="#liste">Liste des cryptomonnaies</a></li>
-              <li><a href="#favoris">Favoris</a></li>
               <li><a href="#connexion">Connexion</a></li>
           </ul>
       </nav>
